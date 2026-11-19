@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="/js/auth.js" defer></script>
+    <title>Iniciar sesión | TellmeWhere</title>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main class="auth">
+        <!-- PANEL DE IMAGEN -->
+        <section class="auth-visual auth-visual-login" aria-hidden="true">
+            <div class="auth-visual-contenido">
+                <span class="auth-lugar">📍 Tokio, Japón</span>
+                <p class="auth-frase">Tu próximo viaje<br>empieza <span>aquí</span>.</p>
+                <ul class="auth-ventajas">
+                    <li>Consulta y gestiona tus reservas</li>
+                    <li>Ofertas exclusivas para socios</li>
+                    <li>Acumula puntos en cada viaje</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PANEL DEL FORMULARIO -->
+        <section class="auth-panel">
+            <div class="auth-tarjeta">
+                <nav class="auth-pestanas" aria-label="Cuenta">
+                    <a href="/login" class="activa" aria-current="page">Iniciar sesión</a>
+                    <a href="/register">Crear cuenta</a>
+                </nav>
+
+                <h1>¡Hola de nuevo! 👋</h1>
+                <p class="auth-intro">Inicia sesión para seguir planeando tu viaje.</p>
+
+                <% if (mensaje) { %>
+                    <p class="auth-mensaje <%= mensaje === 'Usuario conectado' || mensaje.startsWith('Usuario registrado') ? 'ok' : 'error' %>" role="status">
+                        <%= mensaje %>
+                    </p>
+                <% } %>
+
+                <form method="post" action="/login" class="auth-form">
+                    <div class="auth-campo">
+                        <label for="emaillogin">Email</label>
+                        <div class="auth-entrada">
+                            <%- include('partials/auth-iconos', { icono: 'email' }) %>
+                            <input type="email" id="emaillogin" name="email" autocomplete="email" placeholder="tu@email.com" required>
+                        </div>
+                    </div>
+                    <div class="auth-campo">
+                        <label for="passwordlogin">Contraseña</label>
+                        <div class="auth-entrada">
+                            <%- include('partials/auth-iconos', { icono: 'candado' }) %>
+                            <input type="password" id="passwordlogin" name="password" autocomplete="current-password" placeholder="Tu contraseña" required>
+                            <button type="button" class="auth-ver" data-ver="passwordlogin" aria-label="Mostrar contraseña">Ver</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-boton">Iniciar sesión <span aria-hidden="true">→</span></button>
+                </form>
+
+                <p class="auth-pie">¿No tienes cuenta? <a href="/register">Regístrate gratis</a></p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

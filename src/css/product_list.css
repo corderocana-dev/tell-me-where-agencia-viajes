@@ -1,0 +1,269 @@
+/* PÁGINA DE PAQUETES (product_list.ejs) */
+
+/* CABECERA CON FORMULARIO */
+#form_header {
+    background: url(../img/paquetes-cabecera.jpg) center / cover no-repeat;
+    width: 100%;
+    color: #fff;
+}
+
+#gradient {
+    background: rgba(8, 65, 92, 0.72);
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: none;
+    min-height: 32rem;
+    padding: 3rem max(1.5rem, calc((100% - 1200px) / 2));
+    box-sizing: border-box;
+}
+
+#form_content {
+    flex: 0 1 420px;
+}
+
+#form {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+}
+
+.form_div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+#form label {
+    font-family: "Inter";
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.select_form,
+.date_form {
+    width: 100%;
+    box-sizing: border-box;
+    height: 46px;
+    padding: 0 0.9rem;
+    border: none;
+    border-radius: 10px;
+    font-family: "Inter";
+    font-size: 1rem;
+    color: #08415C;
+    background: #fff;
+}
+
+.select_form:focus,
+.date_form:focus {
+    outline: 3px solid rgba(225, 131, 53, 0.6);
+}
+
+/* Título de la cabecera */
+#title_form {
+    flex: 1;
+    text-align: center;
+    text-shadow: 3px 3px rgba(43, 43, 43, 0.35);
+}
+
+.title_Head h1 {
+    margin: 0 0 1rem;
+    font-family: "InterTitle";
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1.05;
+}
+
+.title_Text {
+    max-width: 34rem;
+    margin: 0 auto;
+    font-family: "Inter";
+    font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+    line-height: 1.4;
+}
+
+.orange {
+    color: #E18335;
+}
+
+/* BARRA DE CONTINENTES */
+#nav_list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 0 1rem;
+    height: 3.5rem;
+    align-items: center;
+    background-color: #08415C;
+    color: #fff;
+    font-family: "Inter";
+    font-size: 1.05rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+#nav_list::-webkit-scrollbar {
+    display: none;
+}
+
+#nav_list a:hover {
+    color: #E18335;
+}
+
+/* TÍTULOS DE CONTINENTE */
+.titleProduct {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    color: #08415C;
+    scroll-margin-top: 80px;
+}
+
+.titleProduct hr {
+    margin: 0;
+    border: none;
+    border-top: 2px solid #E18335;
+    width: 4rem;
+}
+
+.country {
+    margin: 2.5rem 0 0.5rem;
+    font-family: "InterTitle";
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+/* TARJETAS DE DESTINO */
+.product_Photo {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+    height: clamp(16rem, 34vw, 25rem);
+    border-radius: 18px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    scroll-margin-top: 90px;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.product_Photo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product_Photo > a {
+    display: block;
+    height: 100%;
+}
+
+.gradient_Product {
+    background: linear-gradient(to left, rgba(8, 65, 92, 0.95), rgba(8, 65, 92, 0.15) 70%);
+    width: 100%;
+    height: 100%;
+}
+
+.toRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+    text-align: center;
+}
+
+.textProduct {
+    font-family: "Inter";
+}
+
+.productContent {
+    margin: 0 0 0.5rem;
+    font-family: "InterTitle";
+    font-size: clamp(1.4rem, 3vw, 2.6rem);
+    text-shadow: 3px 3px rgba(43, 43, 43, 0.35);
+}
+
+.light {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.productPrice {
+    margin: 0;
+    font-family: "InterTitle";
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1;
+    text-shadow: 3px 3px rgba(43, 43, 43, 0.35);
+}
+
+/* Fotos de cada destino (optimizadas) */
+.barcelona { background-image: url(../img/paquete-barcelona.jpg); }
+.praga { background-image: url(../img/paquete-praga.jpg); }
+.budapest { background-image: url(../img/paquete-budapest.jpg); }
+.roma { background-image: url(../img/paquete-roma.jpg); }
+.tokio { background-image: url(../img/paquete-tokio.jpg); }
+.marrakech { background-image: url(../img/paquete-marrakech.jpg); }
+
+/* Separación de las tarjetas con los bordes de la pantalla */
+#lista-paquetes {
+    padding: 0 1.25rem 3rem;
+}
+
+/* MODO NOCHE (colores en general.css: --noche-...) */
+.dark-theme .titleProduct,
+.dark-theme .country {
+    color: var(--noche-texto);
+}
+
+/* TABLET Y MÓVIL */
+@media (max-width: 900px) {
+    #gradient {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        min-height: 0;
+        padding: 2.5rem 1.25rem;
+    }
+
+    #form_content {
+        flex: none;
+        width: 100%;
+        max-width: 560px;
+    }
+
+    #nav_list {
+        justify-content: flex-start;
+        gap: 1.75rem;
+        padding: 0 1.25rem;
+    }
+
+    .toRight {
+        width: 100%;
+    }
+
+    .gradient_Product {
+        background: linear-gradient(to top, rgba(8, 65, 92, 0.95), rgba(8, 65, 92, 0.2) 75%);
+    }
+
+    .toRight {
+        align-items: flex-end;
+        padding-bottom: 1.25rem;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 520px) {
+    #form {
+        padding: 1.1rem;
+    }
+
+    .title_Text {
+        font-size: 1.05rem;
+    }
+}

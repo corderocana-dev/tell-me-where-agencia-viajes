@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/product_list.css">
+    <script type="text/javascript" src="/js/list.js"></script>
+    <title>Paquetes | TellmeWhere</title>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+    <header>
+
+
+        <!--FORM HEADER-->
+        
+        <div id="form_header">
+            <div id="gradient">
+                <div id="form_content">
+                    <form action="" id="form">
+                        <div class="form_div">
+                            <label for="exit_date">Fecha de salida</label>
+                            <input type="date" id="exit_date" class="date_form">
+                        </div>
+                        <div class="form_div">
+                            <label for="arrive_date">Fecha de vuelta</label>
+                            <input type="date" id="arrive_date" class="date_form">
+                        </div>
+                        <div class="form_div">
+                            <label for="people">Huéspedes</label>
+                            <select name="people" id="people" class="select_form">
+                                <option value="1adult">1 adulto</option>
+                                <option value="2adult">2 adultos</option>
+                                <option value="1adult_child">1 adulto, 1 niño/a</option>
+                                <option value="2adults_child">2 adultos, 1 niño/a</option>
+                                <option value="2adults_2childrens">2 adultos, 2 niños/as</option>
+                            </select>
+                        </div>
+                        <div class="form_div">
+                            <label for="Destiny">Destino</label>
+                            <select name="Destiny" id="Destiny" class="select_form">
+                                <option value="product_Photo" selected>Selecciona un destino...</option>
+                                <option value="barcelona">Barcelona</option>
+                                <option value="praga">Praga</option>
+                                <option value="budapest">Budapest</option>
+                                <option value="roma">Roma</option>
+                                <option value="tokio">Tokio</option>
+                                <option value="marrakech">Marruecos</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!--TITLE FORM-->
+
+                <div id="title_form">
+                    <div class="title_Head">
+                        <h1>VUELO <span class="orange">+</span> HOTEL</h1>
+                    </div>
+                    <div class="title_Text">
+                        Viaja <span class="orange">cómodo</span> y <span class="orange">sin preocupación</span> a
+                        cualquier parte del mundo con <span class="orange">TellmeWhere</span>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <!--NAV MAIN-->
+
+        <nav id="nav_list">
+            <div>
+                <a href="#españa" class="text-nav">ESPAÑA</a>
+            </div>
+            <div>
+                <a href="#europa" class="text-nav">EUROPA</a>
+            </div>
+            <div>
+                <a href="#asia-ocean" class="text-nav">ASIA/OCEANÍA</a>
+            </div>
+            <div>
+                <a href="#africa" class="text-nav">ÁFRICA</a>
+            </div>
+        </nav>
+        <div id="lista-paquetes">
+            <div class="titleProduct" id="españa">
+                <p class="country">ESPAÑA</p>
+                <hr>
+            </div>
+            <div class="product_Photo barcelona" id="barcelona">
+                <div class="gradient_Product">
+                    <div class="toRight">
+                        <div class="textProduct">
+                            <p class="productContent">BARCELONA, ESPAÑA</p>
+                            <P class="light">desde</P>
+                            <p class="productPrice"><span class="orange">322€</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="titleProduct" id="europa">
+                <p class="country">EUROPA</p>
+                <hr>
+            </div>
+            <div class="product_Photo praga" id="praga">
+                <a href="/product">
+                    <div class="gradient_Product">
+                        <div class="toRight">
+                            <div class="textProduct">
+                                <p class="productContent">PRAGA, REP.CHECA</p>
+                                <P class="light">desde</P>
+                                <p class="productPrice"><span class="orange">322€</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product_Photo budapest" id="budapest">
+                <div class="gradient_Product">
+                    <div class="toRight">
+                        <div class="textProduct">
+                            <p class="productContent">BUDAPEST, HUNGRÍA</p>
+                            <P class="light">desde</P>
+                            <p class="productPrice"><span class="orange">322€</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product_Photo roma" id="roma">
+                <div class="gradient_Product">
+                    <div class="toRight">
+                        <div class="textProduct">
+                            <p class="productContent">ROMA, ITALIA</p>
+                            <P class="light">desde</P>
+                            <p class="productPrice"><span class="orange">322€</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="titleProduct" id="asia-ocean">
+                <p class="country">ASIA Y OCEANÍA</p>
+                <hr>
+            </div>
+            <div class="product_Photo tokio" id="tokio">
+                <div class="gradient_Product">
+                    <div class="toRight">
+                        <div class="textProduct">
+                            <p class="productContent">TOKIO, JAPÓN</p>
+                            <P class="light">desde</P>
+                            <p class="productPrice"><span class="orange">322€</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="titleProduct" id="africa">
+                <p class="country">ÁFRICA</p>
+                <hr>
+            </div>
+            <div class="product_Photo marrakech" id="marrakech">
+                <div class="gradient_Product">
+                    <div class="toRight">
+                        <div class="textProduct">
+                            <p class="productContent">MARRAKECH, MARRUECOS</p>
+                            <P class="light">desde</P>
+                            <p class="productPrice"><span class="orange">322€</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

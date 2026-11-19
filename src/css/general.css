@@ -1,0 +1,543 @@
+/* FONTS */
+
+@font-face {
+    font-family: InterTitle;
+    src: url(/fonts/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: Inter;
+    src: url(/fonts/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: LightInter;
+    src: url(../fonts/Inter-ExtraLight.ttf);
+}
+
+/* BODY */
+
+body {
+    font-family: "Inter";
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+/* MODO NOCHE: colores compartidos por toda la web
+   (cada página los usa con var(--noche-...) para que todas tengan el mismo tono) */
+
+.dark-theme {
+    --noche-fondo: #0f1c24;        /* fondo de la página */
+    --noche-tarjeta: #16262f;      /* tarjetas, formularios, cajas */
+    --noche-campo: #0b161c;        /* interior de los campos de formulario */
+    --noche-borde: #2a3d48;        /* bordes y separadores */
+    --noche-texto: #e8f0f4;        /* texto principal */
+    --noche-texto-suave: #a9bfcb;  /* textos secundarios */
+
+    background-color: var(--noche-fondo);
+    color: var(--noche-texto);
+}
+
+/* Transición suave al pulsar el botón de modo claro/oscuro */
+.tema-transicion,
+.tema-transicion * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Campos de formulario en modo noche (cualquier página) */
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+    color-scheme: dark;
+}
+
+/* LINKS */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+
+/* TITLES */
+
+.orange {
+    color: #E18335;
+    font-weight: bolder;
+}
+
+.orangeb {
+    color: #E18335;
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.bluetitle {
+    margin: clamp(3rem, 7vw, 6rem) 0 clamp(1.5rem, 3vw, 3rem);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.1;
+    font-family: "Inter";
+    font-weight: 800;
+    color: rgb(8, 65, 92);
+}
+
+/* HEADER (compartido: views/partials/header.ejs) */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #08415C;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 600;
+    transition: box-shadow 0.25s;
+}
+
+.site-header.con-sombra {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.site-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Logo */
+.site-logo,
+.site-logo:visited {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "InterTitle";
+    font-size: 1.7rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.site-logo-where {
+    color: #E18335;
+}
+
+.site-logo-plane {
+    width: 30px;
+    height: 30px;
+    fill: #E18335;
+    transform: rotate(45deg);
+    transition: transform 0.4s;
+}
+
+.site-logo:hover .site-logo-plane {
+    transform: rotate(45deg) translateY(-4px);
+}
+
+/* Menú */
+.site-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.site-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.site-menu ul a,
+.site-menu ul a:visited {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0;
+    color: #d6e3ea;
+    transition: color 0.2s;
+}
+
+/* Línea naranja bajo la página activa (y al pasar el ratón) */
+.site-menu ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #E18335;
+    transition: width 0.25s;
+}
+
+.site-menu ul a:hover,
+.site-menu ul a.activo {
+    color: #fff;
+}
+
+.site-menu ul a:hover::after,
+.site-menu ul a.activo::after {
+    width: 100%;
+}
+
+/* Zona de cuenta */
+.site-menu-cuenta {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.site-saludo {
+    color: #d6e3ea;
+    font-weight: 400;
+}
+
+.site-saludo strong {
+    color: #fff;
+}
+
+.site-enlace-registro,
+.site-enlace-registro:visited {
+    color: #d6e3ea;
+}
+
+.site-enlace-registro:hover,
+.site-enlace-registro.activo {
+    color: #E18335;
+}
+
+.site-btn,
+.site-btn:visited {
+    display: inline-block;
+    background: #E18335;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.site-btn:hover {
+    background: #c96e24;
+    transform: translateY(-1px);
+}
+
+.site-btn-borde,
+.site-btn-borde:visited {
+    background: transparent;
+    border: 2px solid #E18335;
+    color: #E18335;
+}
+
+.site-btn-borde:hover {
+    background: #E18335;
+    color: #fff;
+}
+
+/* Botones de la derecha */
+.site-header-acciones {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.site-tema {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.site-tema:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.site-tema svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.site-tema .icono-sol,
+.dark-theme .site-tema .icono-luna {
+    display: none;
+}
+
+.dark-theme .site-tema .icono-sol {
+    display: block;
+    color: #E18335;
+}
+
+/* Hamburguesa (solo móvil) */
+.site-hamburguesa {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.site-hamburguesa span {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.site-hamburguesa.abierto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.site-hamburguesa.abierto span:nth-child(2) {
+    opacity: 0;
+}
+
+.site-hamburguesa.abierto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Móvil y tablet: menú desplegable */
+@media (max-width: 860px) {
+    .site-header-inner {
+        height: 64px;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .site-logo {
+        font-size: 1.45rem;
+    }
+
+    .site-hamburguesa {
+        display: flex;
+    }
+
+    .site-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #08415C;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 1.5rem 1.5rem;
+    }
+
+    .site-menu.abierto {
+        display: flex;
+    }
+
+    .site-menu ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .site-menu ul a {
+        padding: 0.9rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .site-menu ul a::after {
+        display: none;
+    }
+
+    .site-menu ul a.activo {
+        color: #E18335;
+    }
+
+    .site-menu-cuenta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        padding-top: 1.25rem;
+        text-align: center;
+    }
+}
+
+/* FOOTER (compartido: views/partials/footer.ejs) */
+
+.site-footer {
+    background-color: #08415C;
+    color: #d6e3ea;
+    font-family: "Inter";
+    font-weight: 400;
+    margin-top: 4rem;
+}
+
+.footer-cols {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 0.9fr 0.9fr 1.6fr;
+    gap: 2.5rem;
+}
+
+.site-footer h3 {
+    margin: 0 0 1rem;
+    font-family: "InterTitle";
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #E18335;
+}
+
+.site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer li {
+    margin-bottom: 0.6rem;
+}
+
+.site-footer a,
+.site-footer a:visited {
+    color: #d6e3ea;
+    transition: color 0.2s;
+}
+
+.site-footer a:hover {
+    color: #E18335;
+}
+
+/* Marca */
+.footer-logo,
+.footer-logo:visited {
+    display: inline-block;
+    font-family: "InterTitle";
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.footer-logo span {
+    color: #E18335;
+}
+
+.footer-brand p {
+    margin: 0 0 1.25rem;
+    max-width: 22rem;
+    line-height: 1.5;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.footer-social a:hover {
+    background: #E18335;
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+/* Contacto */
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.footer-contact a {
+    white-space: nowrap;
+}
+
+.footer-contact svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: #E18335;
+}
+
+/* Barra final */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #063349;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+    color: #a9bfcb;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-note {
+    color: #8aa4b2;
+}
+
+/* Tablet: 2 columnas */
+@media (max-width: 900px) {
+    .footer-cols {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand,
+    .footer-contact {
+        grid-column: span 2;
+    }
+}
+
+/* Móvil: Explora y Tu cuenta lado a lado, el resto debajo */
+@media (max-width: 520px) {
+    .footer-cols {
+        gap: 2rem 1rem;
+        padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-contact a {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}

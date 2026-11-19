@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <script type="text/javascript" src="../js/home.js"></script>
+    <title>TellmeWhere-Home</title>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+    <!-- PORTADA (HERO) -->
+    <header class="hero">
+        <img class="hero-foto" src="/img/hero-1920.jpg" alt="Viajera subiendo la pirámide de Chichén Itzá" fetchpriority="high">
+
+        <div class="hero-contenido">
+            <!-- Avión que cruza la portada justo por encima de la etiqueta (detalle decorativo) -->
+            <div class="hero-avion" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            </div>
+            <p class="hero-etiqueta">✈ Agencia de viajes online</p>
+            <h1>Descubre tu próximo <span>destino</span></h1>
+            <p class="hero-subtitulo">Paquetes de vuelo y hotel a los destinos más buscados, al mejor precio.</p>
+
+            <!-- BUSCADOR: lleva a Paquetes con el destino y las fechas elegidas -->
+            <form class="hero-buscador" action="/list" method="get">
+                <div class="hero-campo hero-campo-destino">
+                    <label for="hero-destino">Destino</label>
+                    <select id="hero-destino" name="destino" required>
+                        <option value="" disabled selected>¿A dónde quieres ir?</option>
+                        <optgroup label="España">
+                            <option value="barcelona">Barcelona</option>
+                        </optgroup>
+                        <optgroup label="Europa">
+                            <option value="praga">Praga</option>
+                            <option value="budapest">Budapest</option>
+                            <option value="roma">Roma</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                            <option value="tokio">Tokio</option>
+                        </optgroup>
+                        <optgroup label="África">
+                            <option value="marrakech">Marrakech</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="hero-campo">
+                    <label for="hero-ida">Ida</label>
+                    <input type="date" id="hero-ida" name="ida">
+                </div>
+                <div class="hero-campo">
+                    <label for="hero-vuelta">Vuelta</label>
+                    <input type="date" id="hero-vuelta" name="vuelta">
+                </div>
+                <div class="hero-campo">
+                    <label for="hero-viajeros">Viajeros</label>
+                    <select id="hero-viajeros" name="viajeros">
+                        <option value="1adult">1 adulto</option>
+                        <option value="2adult" selected>2 adultos</option>
+                        <option value="1adult_child">1 adulto, 1 niño/a</option>
+                        <option value="2adults_child">2 adultos, 1 niño/a</option>
+                        <option value="2adults_2childrens">2 adultos, 2 niños/as</option>
+                    </select>
+                </div>
+                <button type="submit" class="hero-boton">Buscar viaje</button>
+            </form>
+
+            <ul class="hero-ventajas">
+                <li>Mejor precio</li>
+                <li>Pago seguro</li>
+                <li>Atención 24/7</li>
+            </ul>
+        </div>
+
+        <!-- OFERTA DESTACADA (sustituye a la ventana flotante con cuenta atrás) -->
+        <a class="hero-oferta" href="/product">
+            <img src="/img/pragacabecera.jpg" alt="">
+            <span class="hero-oferta-texto">
+                <span class="hero-oferta-etiqueta">Oferta destacada</span>
+                <strong>Praga · 2 noches</strong>
+                <span>desde <b>322€</b> por persona</span>
+            </span>
+            <span class="hero-oferta-flecha" aria-hidden="true">→</span>
+        </a>
+    </header>
+
+    <!--SALES-->
+
+    <main>
+
+        <p class="bluetitle">Ofertas seleccionadas</p>
+        <section>
+            <div id="circles">
+                <div class="circle">
+                    <img src="/img/italia.jpg" alt="Italia">
+                    <div class="colorcircle">
+                        <p class="circletitle">ITALIA</p>
+                        <p class="circlesize">3 noches hotel <span class="orange">*****</span></p>
+                        <p>desde <span class="orangeb">365€</span></p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <img src="/img/grecia.jpg" alt="Grecia">
+                    <div class="colorcircle">
+                        <p class="circletitle">GRECIA</p>
+                        <p class="circlesize">3 noches hotel <span class="orange">*****</span></p>
+                        <p>desde <span class="orangeb">365€</span></p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <img src="/img/marruecos.png" alt="Marruecos">
+                    <div class="colorcircle">
+                        <p class="circletitle">MARRUECOS</p>
+                        <p class="circlesize">3 noches hotel <span class="orange">*****</span></p>
+                        <p>desde <span class="orangeb">365€</span></p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <img src="/img/espana.jpg" alt="España">
+                    <div class="colorcircle">
+                        <p class="circletitle">ESPAÑA</p>
+                        <p class="circlesize">3 noches hotel <span class="orange">*****</span></p>
+                        <p>desde <span class="orangeb">365€</span></p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <img src="/img/alemania.jpg" alt="Alemania">
+                    <div class="colorcircle">
+                        <p class="circletitle">ALEMANIA</p>
+                        <p class="circlesize">3 noches hotel <span class="orange">*****</span></p>
+                        <p>desde <span class="orangeb">365€</span></p>
+                    </div>
+                </div>
+                <div class="circle">
+                    <img src="/img/japon.jpg" alt="Japón">
+                    <div class="colorcircle">
+                        <p class="circletitle">JAPÓN</p>
+                        <p class="circlesize">3 noches hotel <span class="orange">*****</span></p>
+                        <p>desde <span class="orangeb">365€</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!--CAROUSEL MOST SEARCHED-->
+
+            <p class="bluetitle">Los más buscados</p>
+
+            <section class="slider-wrapper">
+                <button class="slide-arrow" id="slide-arrow-prev">
+                    &#8249;
+                </button>
+                <button class="slide-arrow" id="slide-arrow-next">
+                    &#8250;
+                </button>
+                <ul class="slides-container" id="slides-container">
+                    <li class="slide">
+                        <div class="carousel-textBox">
+                            <p>ITALIA</p>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="carousel-textBox">
+                            <p>PRAGA</p>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="carousel-textBox">
+                            <p>MARRUECOS</p>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="carousel-textBox">
+                            <p>JAPÓN</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!--BENEFITS-->
+
+            <p class="bluetitle">Beneficios TellmeWhere</p>
+            <section>
+                <div id="benefits">
+                    <div class="benefit">
+                        <img
+                            src="data:image/png;base64,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">
+                        <p class="benefittitle">Ofertas seleccionadas</p>
+                        <p class="benefitgray">Te encontramos las mejores ofertas con la mejor relación calidad-precio.
+                        </p>
+                    </div>
+                    <div class="benefit">
+                        <img src="https://img.icons8.com/wired/64/edison-bulb.png" alt="edison-bulb" />
+                        <p class="benefittitle">Asesoramiento personalizado</p>
+                        <p class="benefitgray">Estamos a tu disposición en las Redes Sociales.</p>
+                    </div>
+                    <div class="benefit">
+                        <img
+                            src="data:image/png;base64,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">
+                        <p class="benefittitle">Reserva fácil y segura</p>
+                        <p class="benefitgray">Encuentra con nosotros tus próximas vacaciones de manera fácil y segura.
+                        </p>
+                    </div>
+                    <div class="benefit">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAErElEQVR4nO2bS48VRRiGn1mIC2UJc4NExDj8Aw0B1pAjrNCoLJDZKbjQ4TJRYAMJ4z8AJAF2ZBQjgriCxJmwQdhq3IorYSEMgsOcoU0lbyVfKgdOV/ch9qXepJLu6q6v+7ynvmtVQ0JCQkJCQkJCQkJCQkLDMQ9kz2nzkff3G9849CNkLvL+fuMbCf9j+/XluRZzT2OQCIzAO8A14GGkKmYNaAv67R0K4ngFfkRWkXasyMxzA/8F9gOjtA+jwAFxkMXOxOsa5MhrOw6KC6fOubGgQSMv7r1qgxFx8SBmkNf9hIJ8NJ3ALEfrdX/0A5qKrE0EjgCTwHngNnAPeKJ2F7ila3uA4ZwyW0HgFuAysBQRr7l7fwA2D/hdakXgeuCqeYcu8DPwOfAWsBp4Sc0dvw1MqRDRNeOuAK+3jcBdJoT6BzgBrIoY7widAR6Z0OODthB41Dz3AjBeQtYaYNbIO/J/E3gjKHYO+vyonrcMHOrxPmuBfcBPwG8qbjzUsVP3vSLNYgiYlkwn+3CJ9ytN4HxQ7Bzk+S5D3s7gPdws/Dqwbc9zIKeBsUDGu4bE9wu+b2VVeL2xeeHM2yEb5q4tSq0dARPAK2oTsnEXdI+3e9sDWdPm2roC71lZAq8am2fxqZk1szl/tPO435rZ7FTeqrO3iS40agSBW/SMR4HD2CECnNp+VkDulMYuBzNxjfHOm5pA4GU9w4UqHuNGbYuQZ0l0Mu4HtcwZ9V+qO4EjMvrdIM47Y9S2LC5K1qkgTuwqDXTHtSVwUvJdhmFDla6cQRFD38tBLeqPGu+x1PpRnQk8L/kuPfPY9wyHUgbecXxi+var72ydCbwt+S6PDT3yIFIvghjT5cUeG9X3Sx0I7AB/AneAbab/nuRb+/e7+t5kcJiQTJexeAyr7686EHjHyPrD9Pugd4Xp8953JYPDShNAe7ysPrfalheJQGpK4DbNQjf7tpr+pMIlcasCTuRm08KYvS8wjPm4aWHMpOTPBbnqkhzMIErxb/QJpHfXmcBhk8rZlOq0nuuqKmXxnWSdfEYqt6rOBKLVs0wJvseYCWdcQaAovJr+HWxP+Ur930fKqySBm005y5bjt5ty1lRB8nw5qxPk2o/1TOdIak+gLWnNquhp82JfUL2owkAem+fVdllOyWPIFFtjS1mVJnCdUVlXdg/3KN43JX1H8ofABuBVtQ0KVb6RXfNqG+7l+8LUB19rEoEo7vOzxi0AWYyqnpdnd8KSHEa4Je89yX6qY5pGIFq39SROB+qMwhAXy/0I/KqFqAUdX9G1cB15SDPPm4IvKY7KE2hJ9DYxXOeNwVpj856WJK82BKJlywfGO89Elt5XK1R5bGxeUbWtJYHesXjvnCkkmVN4slFB+Aq1YfUdUIZhF+AvFXQYtSfQY5NIiNne9kRBcmyc10gCrVq6vPWcyvB3FdYs6vimCgO7I9Oz1hBYBSQCSyIR2PT9gTcqfl7p/YF1OI8m0AezbfzIMMS4Ccpz45oGuQC17ThU5GPDjlk7Pdhj22wbMCby/CaA6A+vj0VkAFnDW/QH1x4dTV2/j7lNbaHsJ/8JCQkJCQkJCQkJCQkJCQkJhPgPxd/IccXLfMQAAAAASUVORK5CYII=">
+                        <p class="benefittitle">Inspiración solo para ti</p>
+                        <p class="benefitgray">Nuestro equipo editorial te brindará consejos y te ayudará a planificar
+                            tu
+                            viaje.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!--ABOUT US-->
+
+            <p class="bluetitle">Sobre nosotros</p>
+            <section id="sectionsono">
+                <div id="divsono">
+                    <p class="description">
+                        En TellMeWhere, nuestra pasión es hacer que cada viaje sea una
+                        experiencia inolvidable. Fundada en el espíritu de la aventura y la
+                        exploración, nos enorgullece ofrecer a nuestros clientes una gama
+                        diversa de destinos y servicios turísticos de alta calidad. Desde
+                        nuestra fundación, nos hemos comprometido a proporcionar
+                        experiencias de viaje excepcionales que superen las expectativas de
+                        nuestros clientes. Ya sea que estés planeando unas vacaciones
+                        relajantes en una playa paradisíaca, una emocionante escapada de
+                        aventura o un viaje cultural lleno de descubrimientos, nuestro
+                        equipo de expertos está aquí para hacer realidad tus sueños de
+                        viaje.
+                    </p>
+                    <div id="sonocomments">
+                        <textarea class="comentary" name="" id="comentario" cols="30" rows="10"
+                            placeholder="Escribe tu comentario..."></textarea>
+                        <div id="sonoopinion">
+                            <p class="opinion">Excelente</p>
+                            <div class="stars">
+                                <div class="rating">
+                                    <span data-rating="5">★</span>
+                                    <span data-rating="4">★</span>
+                                    <span data-rating="3">★</span>
+                                    <span data-rating="2">★</span>
+                                    <span data-rating="1">★</span>
+                                </div>
+                            </div>
+                            <p>En base a <span class="underline">140 opiniones</span></p>
+                            <input class="button" type="submit" id="send" name="send" value="Enviar" />
+                            <div id="popup" class="popup">Comentario enviado</div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="divimg">
+                    <img src="/img/GrandVoyage-Cuba-Barco-Playa.jpg" alt="" />
+                </div>
+            </section>
+
+            <!--SOCIAL COMMENTS-->
+
+            <section id="social">
+                <div class="completeUser">
+                    <div>
+                        <div class="user">
+                            <div class="userName">
+                                <p class="letterUser L">L</p>
+                                <p>Laura</p>
+                            </div>
+                            <div class="stars">
+                                <img src="/img/stars.png" alt="stars">
+                            </div>
+                        </div>
+                        <div>
+                            <p>"Check in rápido y eficaz. En recepción gente joven y muy amable en espera de ayudarte en
+                                lo
+                                que
+                                necesites durante tu estadía."
+                            </p>
+                        </div>
+                        <div class="more">
+                            <p>Más...</p>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="completeUser">
+                    <div>
+                        <div class="user">
+                            <div class="userName">
+                                <p class="letterUser R">R</p>
+                                <p>Rubén</p>
+                            </div>
+                            <div class="stars">
+                                <img src="/img/stars.png" alt="stars">
+                            </div>
+                        </div>
+                        <div>
+                            <p>"Check in rápido y eficaz. En recepción gente joven y muy amable en espera de ayudarte en
+                                lo
+                                que
+                                necesites durante tu estadía."
+                            </p>
+                        </div>
+                        <div class="more">
+                            <p>Más...</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="completeUser">
+                    <div>
+                        <div class="user">
+                            <div class="userName">
+                                <p class="letterUser A">A</p>
+                                <p>Aless</p>
+                            </div>
+                            <div class="stars">
+                                <img src="/img/stars.png" alt="stars">
+                            </div>
+                        </div>
+                        <div>
+                            <p>"Check in rápido y eficaz. En recepción gente joven y muy amable en espera de ayudarte en
+                                lo
+                                que
+                                necesites durante tu estadía."
+                            </p>
+                        </div>
+                        <div class="more">
+                            <p>Más...</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+    </main>
+
+    <!--FOOTER-->
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

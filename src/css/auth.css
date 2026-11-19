@@ -1,0 +1,510 @@
+/* FORMULARIOS DE CUENTA (login y registro): diseño partido en dos */
+
+.auth {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: calc(100vh - 72px);
+    font-family: "Inter";
+    background: #f4f8fa;
+}
+
+/* ---------- PANEL DE IMAGEN ---------- */
+.auth-visual {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.auth-visual-login {
+    background-image: url(/img/paquete-tokio.jpg);
+}
+
+.auth-visual-registro {
+    background-image: url(/img/paquete-marrakech.jpg);
+}
+
+/* Degradado para que el texto se lea */
+.auth-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(8, 65, 92, 0.95) 0%, rgba(8, 65, 92, 0.55) 45%, rgba(8, 65, 92, 0.1) 100%);
+}
+
+/* Círculo de color decorativo */
+.auth-visual::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -140px;
+    top: -140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(225, 131, 53, 0.55), rgba(225, 131, 53, 0));
+    filter: blur(10px);
+}
+
+.auth-visual-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+    animation: auth-entrar 0.7s ease;
+}
+
+.auth-lugar {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.auth-frase {
+    margin: 0 0 1.5rem;
+    font-family: "InterTitle";
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.1;
+}
+
+.auth-frase span {
+    color: #E18335;
+}
+
+.auth-ventajas {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+    font-weight: 400;
+}
+
+.auth-ventajas li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.auth-ventajas li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #E18335;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+/* ---------- PANEL DEL FORMULARIO ---------- */
+.auth-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.auth-tarjeta {
+    width: 100%;
+    max-width: 440px;
+    color: #08415C;
+    animation: auth-entrar 0.6s ease;
+}
+
+.auth .auth-tarjeta:has(.auth-form-2col) {
+    max-width: 560px;
+}
+
+/* Entrada suave: solo se desliza (sin opacidad), así el contenido es visible
+   aunque el navegador pause las animaciones */
+@keyframes auth-entrar {
+    from { transform: translateY(16px); }
+    to { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-visual-contenido,
+    .auth-tarjeta { animation: none; }
+}
+
+/* Selector Iniciar sesión | Crear cuenta */
+.auth-pestanas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 2rem;
+    padding: 4px;
+    border-radius: 12px;
+    background: #e3ecf1;
+}
+
+.auth-pestanas a {
+    padding: 0.65rem;
+    border-radius: 9px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #5b7a8a;
+    transition: background 0.2s, color 0.2s;
+}
+
+.auth-pestanas a:hover {
+    color: #08415C;
+}
+
+.auth-pestanas a.activa {
+    background: #fff;
+    color: #08415C;
+    box-shadow: 0 2px 8px rgba(8, 65, 92, 0.12);
+}
+
+.auth-tarjeta h1 {
+    margin: 0 0 0.4rem;
+    font-family: "InterTitle";
+    font-size: clamp(1.7rem, 3vw, 2.1rem);
+}
+
+.auth-intro {
+    margin: 0 0 1.75rem;
+    color: #5b7a8a;
+    font-weight: 400;
+}
+
+/* Mensaje del servidor */
+.auth-mensaje {
+    margin: 0 0 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.auth-mensaje.error {
+    background: #fdecea;
+    color: #a3341f;
+}
+
+.auth-mensaje.ok {
+    background: #e6f4ea;
+    color: #1e6b35;
+}
+
+/* ---------- CAMPOS ---------- */
+.auth-form {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.auth-form-2col {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+.auth-campo-completo {
+    grid-column: 1 / -1;
+}
+
+.auth-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.auth-campo label {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Campo con icono a la izquierda */
+.auth-entrada {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+/* En la fila del teléfono, el campo ocupa el espacio que deja el prefijo */
+.auth-telefono .auth-entrada {
+    flex: 1;
+}
+
+.auth-icono {
+    position: absolute;
+    left: 0.9rem;
+    width: 18px;
+    height: 18px;
+    fill: #8aa4b2;
+    pointer-events: none;
+    transition: fill 0.2s;
+}
+
+.auth-entrada input,
+.auth-telefono select {
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0 0.9rem 0 2.7rem;
+    border: 1.5px solid #d3dee4;
+    border-radius: 12px;
+    background: #fff;
+    font-family: "Inter";
+    font-size: 1rem;
+    color: #08415C;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-entrada-sin-icono input {
+    padding-left: 0.9rem;
+}
+
+.auth-entrada input::placeholder {
+    color: #9fb3bf;
+}
+
+.auth-entrada input:focus,
+.auth-telefono select:focus {
+    outline: none;
+    border-color: #E18335;
+    box-shadow: 0 0 0 4px rgba(225, 131, 53, 0.18);
+}
+
+.auth-entrada:focus-within .auth-icono {
+    fill: #E18335;
+}
+
+/* Botón Ver / Ocultar contraseña */
+.auth-entrada:has(.auth-ver) input {
+    padding-right: 5rem;
+}
+
+.auth-ver {
+    position: absolute;
+    right: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #E18335;
+    font-family: "Inter";
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.auth-ver:hover {
+    background: rgba(225, 131, 53, 0.1);
+}
+
+/* Prefijo + teléfono */
+.auth-telefono {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.auth-telefono select {
+    width: auto;
+    flex-shrink: 0;
+    padding: 0 0.8rem;
+}
+
+/* Medidor de seguridad de la contraseña */
+.auth-fuerza {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-top: 0.2rem;
+}
+
+.auth-fuerza span {
+    height: 4px;
+    border-radius: 4px;
+    background: #dfe8ed;
+    transition: background 0.25s;
+}
+
+.auth-fuerza[data-nivel="1"] span:nth-child(-n+1) { background: #d6452f; }
+.auth-fuerza[data-nivel="2"] span:nth-child(-n+2) { background: #e3a13a; }
+.auth-fuerza[data-nivel="3"] span { background: #2ea057; }
+
+.auth-fuerza-texto {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #7a93a0;
+}
+
+.auth-fuerza-texto.debil { color: #d6452f; }
+.auth-fuerza-texto.media { color: #b67a17; }
+.auth-fuerza-texto.fuerte { color: #2ea057; }
+
+/* Casilla */
+.auth-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.auth-check input {
+    width: 18px;
+    height: 18px;
+    margin: 0.1rem 0 0;
+    accent-color: #E18335;
+    flex-shrink: 0;
+}
+
+/* Botón principal */
+.auth-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 52px;
+    margin-top: 0.4rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #E18335, #c96524);
+    color: #fff;
+    font-family: "InterTitle";
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(225, 131, 53, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-boton span {
+    transition: transform 0.2s;
+}
+
+.auth-boton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(225, 131, 53, 0.4);
+}
+
+.auth-boton:hover span {
+    transform: translateX(4px);
+}
+
+.auth-pie {
+    margin: 1.75rem 0 0;
+    text-align: center;
+    font-weight: 400;
+    color: #5b7a8a;
+}
+
+.auth-pie a {
+    color: #E18335;
+    font-weight: 700;
+}
+
+.auth-pie a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- MODO NOCHE (colores en general.css: --noche-...) ---------- */
+.dark-theme .auth {
+    background: var(--noche-fondo);
+}
+
+.dark-theme .auth-tarjeta {
+    color: var(--noche-texto);
+}
+
+.dark-theme .auth-intro,
+.dark-theme .auth-pie,
+.dark-theme .auth-fuerza-texto {
+    color: var(--noche-texto-suave);
+}
+
+.dark-theme .auth-pestanas {
+    background: var(--noche-tarjeta);
+}
+
+.dark-theme .auth-pestanas a {
+    color: var(--noche-texto-suave);
+}
+
+.dark-theme .auth-pestanas a.activa {
+    background: var(--noche-borde);
+    color: #fff;
+    box-shadow: none;
+}
+
+.dark-theme .auth-entrada input,
+.dark-theme .auth-telefono select {
+    background: var(--noche-tarjeta);
+    border-color: var(--noche-borde);
+    color: var(--noche-texto);
+}
+
+.dark-theme .auth-entrada input::placeholder {
+    color: #6f8896;
+}
+
+.dark-theme .auth-fuerza span {
+    background: var(--noche-borde);
+}
+
+.dark-theme .auth-mensaje.error {
+    background: rgba(214, 69, 48, 0.18);
+    color: #ffb4a6;
+}
+
+.dark-theme .auth-mensaje.ok {
+    background: rgba(46, 160, 87, 0.18);
+    color: #8fdba8;
+}
+
+/* ---------- TABLET Y MÓVIL: la imagen pasa a ser una franja arriba ---------- */
+@media (max-width: 900px) {
+    .auth {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .auth-visual {
+        min-height: 220px;
+        padding: 2rem 1.5rem 1.75rem;
+    }
+
+    .auth-frase {
+        margin-bottom: 0;
+        font-size: 1.9rem;
+    }
+
+    .auth-ventajas {
+        display: none;
+    }
+
+    .auth-panel {
+        padding: 2rem 1.25rem 3rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .auth-visual {
+        min-height: 180px;
+    }
+
+    .auth-form-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-pestanas {
+        margin-bottom: 1.5rem;
+    }
+}

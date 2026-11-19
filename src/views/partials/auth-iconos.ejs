@@ -1,0 +1,11 @@
+<%#
+  ICONOS DE LOS FORMULARIOS DE CUENTA (login y registro)
+  Uso: include('partials/auth-iconos', { icono: 'email' })
+%>
+<% const rutas = {
+  email: 'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5 8-5V7H4zm16 2.7-7.5 4.7a1 1 0 0 1-1 0L4 9.7V17h16V9.7z',
+  candado: 'M7 10V7a5 5 0 0 1 10 0v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1zm2 0h6V7a3 3 0 0 0-6 0v3zm3 4a1.5 1.5 0 0 0-1 2.6V18h2v-1.4a1.5 1.5 0 0 0-1-2.6z',
+  persona: 'M12 12a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-8 11a8 8 0 0 1 16 0h-2a6 6 0 0 0-12 0H4z',
+  bandera: 'M5 3h2v1h11.4a1 1 0 0 1 .9 1.4L17.8 9l1.5 3.6a1 1 0 0 1-.9 1.4H7v7H5V3zm2 3v6h9.9l-1.1-2.6a1 1 0 0 1 0-.8L16.9 6H7z',
+}; %>
+<svg class="auth-icono" viewBox="0 0 24 24" aria-hidden="true"><path d="<%= rutas[icono] %>"/></svg>

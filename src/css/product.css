@@ -1,0 +1,347 @@
+/* PÁGINA DE OFERTA (product.ejs) */
+
+/* CABECERA */
+#headerImage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 420px;
+    background: url(../img/paquete-praga.jpg) center / cover no-repeat;
+    color: #fff;
+    font-family: "Inter";
+}
+
+#headerImage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(8, 65, 92, 0.96) 0%, rgba(8, 65, 92, 0.75) 45%, rgba(8, 65, 92, 0.05) 100%);
+}
+
+#headerText {
+    position: relative;
+    width: min(560px, 100%);
+    box-sizing: border-box;
+    padding: 2.5rem max(1.5rem, calc((100vw - 1200px) / 2)) 2.5rem 1.5rem;
+}
+
+.oferta-etiqueta {
+    display: inline-block;
+    margin: 0 0 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background: #E18335;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#headerText h1 {
+    margin: 0 0 0.5rem;
+    font-family: "InterTitle";
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+}
+
+#description {
+    margin: 0 0 1.5rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+.icon {
+    margin-left: 0.4rem;
+    color: #E18335;
+    letter-spacing: 0.1em;
+}
+
+#info {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+}
+
+.price {
+    margin: 0;
+    font-family: "InterTitle";
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    line-height: 1;
+    color: #E18335;
+}
+
+.person {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+#hright {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* CUERPO: información + formulario */
+#body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+    align-items: start;
+}
+
+.titles {
+    margin: 2.5rem 0 1rem;
+    font-family: "InterTitle";
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    color: #08415C;
+}
+
+.btext {
+    margin: 0;
+    font-family: "Inter";
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #26323a;
+}
+
+.vuelo {
+    display: block;
+    width: 100%;
+    max-width: 629px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario de reserva (se queda visible al bajar en ordenador) */
+.newright {
+    position: sticky;
+    top: 96px;
+    margin-top: 2.5rem;
+}
+
+.form {
+    padding: 1.75rem;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #dfe8ed;
+    box-shadow: 0 16px 40px rgba(8, 65, 92, 0.12);
+    font-family: "Inter";
+}
+
+.form .titles {
+    margin-top: 0;
+}
+
+#form-reserva {
+    display: grid;
+    gap: 1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.campo-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.campo label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #5b7a8a;
+}
+
+.campo select,
+.campo input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 46px;
+    padding: 0 0.8rem;
+    border: 1px solid #c9d7de;
+    border-radius: 10px;
+    background: #f6f9fb;
+    font-family: "Inter";
+    font-size: 0.95rem;
+    color: #08415C;
+}
+
+.campo select:focus,
+.campo input:focus {
+    outline: none;
+    border-color: #E18335;
+    box-shadow: 0 0 0 3px rgba(225, 131, 53, 0.25);
+    background: #fff;
+}
+
+.total {
+    margin: 0.25rem 0 0;
+    color: #5b7a8a;
+}
+
+.total strong {
+    color: #E18335;
+    font-size: 1.3rem;
+}
+
+.boton-reservar {
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: #E18335;
+    color: #fff;
+    font-family: "InterTitle";
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.boton-reservar:hover {
+    background: #c96e24;
+}
+
+.aviso-demo {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: #e6f4ea;
+    color: #1e6b35;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* HOTEL */
+#detalleshotel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+}
+
+#imageandmap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+#images img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+#maps {
+    min-height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+#maps iframe {
+    display: block;
+    min-height: 320px;
+}
+
+/* MODO NOCHE (colores en general.css: --noche-...) */
+.dark-theme .titles {
+    color: var(--noche-texto);
+}
+
+.dark-theme .btext {
+    color: var(--noche-texto-suave);
+}
+
+.dark-theme .form {
+    background: var(--noche-tarjeta);
+    border-color: var(--noche-borde);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.dark-theme .campo label,
+.dark-theme .total {
+    color: var(--noche-texto-suave);
+}
+
+.dark-theme .campo select,
+.dark-theme .campo input {
+    background: var(--noche-campo);
+    border-color: var(--noche-borde);
+    color: var(--noche-texto);
+}
+
+.dark-theme .aviso-demo {
+    background: rgba(46, 160, 87, 0.15);
+    color: #8fdba8;
+}
+
+/* TABLET Y MÓVIL */
+@media (max-width: 900px) {
+    #headerImage {
+        min-height: 0;
+        align-items: flex-end;
+    }
+
+    #headerImage::before {
+        background: linear-gradient(to top, rgba(8, 65, 92, 0.96) 0%, rgba(8, 65, 92, 0.6) 60%, rgba(8, 65, 92, 0.2) 100%);
+    }
+
+    #headerText {
+        width: 100%;
+        padding: 6rem 1.25rem 2rem;
+    }
+
+    #body {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0 1.25rem;
+    }
+
+    .newright {
+        position: static;
+    }
+
+    #detalleshotel {
+        padding: 0 1.25rem;
+    }
+
+    #imageandmap {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    #images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form {
+        padding: 1.25rem;
+    }
+
+    .btext {
+        font-size: 1rem;
+    }
+}

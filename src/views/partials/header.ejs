@@ -1,0 +1,66 @@
+<!--
+  HEADER COMPARTIDO (menú superior fijo)
+  Se incluye en todas las páginas con: include('partials/header')
+  Variables que llegan desde server.js: ruta (página actual) y usuario (nombre si hay sesión iniciada).
+-->
+<%
+  const menu = [
+    { href: '/', texto: 'Inicio' },
+    { href: '/list', texto: 'Paquetes' },
+    { href: '/product', texto: 'Ofertas' },
+  ];
+  const activo = (href) => (href === '/' ? ruta === '/' : ruta.startsWith(href)) ? 'activo' : '';
+%>
+<!-- Modo claro/oscuro decidido ANTES de dibujar la página (evita el "fogonazo" blanco).
+     Si el usuario eligió un modo se usa ese; si no, el del sistema (Windows, móvil...). -->
+<script>
+    (function () {
+        var guardado = null;
+        try { guardado = localStorage.getItem('tellmewhere-tema'); } catch (e) {}
+        var oscuro = guardado ? guardado === 'oscuro' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (oscuro) document.body.classList.add('dark-theme');
+    })();
+</script>
+<div class="site-header">
+    <div class="site-header-inner">
+
+        <!-- LOGO -->
+        <a href="/" class="site-logo" aria-label="TellmeWhere - Inicio">
+            <span>Tellme<span class="site-logo-where">Where</span></span>
+            <svg class="site-logo-plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </a>
+
+        <!-- MENÚ (en móvil se despliega con el botón ☰) -->
+        <nav class="site-menu" id="site-menu" aria-label="Menú principal">
+            <ul>
+                <% menu.forEach((item) => { %>
+                    <li><a href="<%= item.href %>" class="<%= activo(item.href) %>" <%- activo(item.href) ? 'aria-current="page"' : '' %>><%= item.texto %></a></li>
+                <% }) %>
+            </ul>
+
+            <div class="site-menu-cuenta">
+                <% if (usuario) { %>
+                    <span class="site-saludo">Hola, <strong><%= usuario %></strong></span>
+                    <a href="/logout" class="site-btn site-btn-borde">Cerrar sesión</a>
+                <% } else { %>
+                    <a href="/register" class="site-enlace-registro <%= activo('/register') %>">Registrarse</a>
+                    <a href="/login" class="site-btn <%= activo('/login') ? 'activo' : '' %>">Iniciar sesión</a>
+                <% } %>
+            </div>
+        </nav>
+
+        <div class="site-header-acciones">
+            <!-- MODO CLARO / OSCURO (se recuerda al cambiar de página) -->
+            <button type="button" class="site-tema" id="site-tema" aria-label="Cambiar a modo oscuro" title="Modo claro / oscuro">
+                <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button type="button" class="site-hamburguesa" id="site-hamburguesa" aria-label="Abrir menú" aria-controls="site-menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</div>
+<script src="/js/header.js" defer></script>

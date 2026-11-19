@@ -1,0 +1,71 @@
+<!--
+  FOOTER COMPARTIDO
+  Se incluye en todas las páginas con:  include('partials/footer')
+  Para cambiar algo del pie de página, basta con editar este archivo.
+  Los datos de contacto son ficticios (proyecto de portfolio).
+-->
+<footer class="site-footer">
+    <div class="footer-cols">
+
+        <!-- MARCA -->
+        <div class="footer-brand">
+            <a href="/" class="footer-logo">Tellme<span>Where</span></a>
+            <p>Tu agencia de viajes online: paquetes, vuelos y hoteles al mejor precio.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+                </a>
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X (Twitter)">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.7 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L2 3h6.4l4.4 5.9L17.7 3zm-1.1 16.2h1.7L7.5 4.7H5.7l10.9 14.5z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- EXPLORA -->
+        <div class="footer-links" role="navigation" aria-label="Explora">
+            <h3>Explora</h3>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/list">Paquetes</a></li>
+                <li><a href="/product">Oferta: Praga</a></li>
+            </ul>
+        </div>
+
+        <!-- TU CUENTA -->
+        <div class="footer-links" role="navigation" aria-label="Tu cuenta">
+            <h3>Tu cuenta</h3>
+            <ul>
+                <li><a href="/login">Iniciar sesión</a></li>
+                <li><a href="/register">Registrarse</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTACTO (datos ficticios) -->
+        <div class="footer-contact">
+            <h3>Contacto</h3>
+            <ul>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+                    <a href="tel:+34123456789">+34 123 456 789</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7.2L4.5 6.5v.3L12 11.6l7.5-4.8v-.3L12 11.2z"/></svg>
+                    <a href="mailto:info@tellmewhere.example">info@tellmewhere.example</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm1 3v4.6l3.2 1.9-1 1.7L11 12.7V7h2z"/></svg>
+                    <span>Lunes a viernes, 9:00 – 18:00</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- BARRA FINAL -->
+    <div class="footer-bottom">
+        <p>© <%= new Date().getFullYear() %> TellmeWhere. Todos los derechos reservados.</p>
+        <p class="footer-note">Proyecto académico de portfolio · Empresa y datos ficticios</p>
+    </div>
+</footer>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <script src="/js/product.js" defer></script>
+    <title>Praga, 2 noches desde 322€ | TellmeWhere</title>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <!-- CABECERA DE LA OFERTA -->
+    <header id="headerImage">
+        <div id="headerText">
+            <p class="oferta-etiqueta">Oferta destacada</p>
+            <h1>Praga, República Checa</h1>
+            <p id="description">2 noches · 2 personas <span class="icon" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+            <div id="info">
+                <div id="hleft">
+                    <p class="price">322€</p>
+                    <p class="person">por persona</p>
+                </div>
+                <ul id="hright">
+                    <li><strong>Salida:</strong> 25 de abril · <strong>Vuelta:</strong> 28 de abril</li>
+                    <li><strong>Incluye:</strong> vuelo, traslados y alojamiento</li>
+                    <li><strong>Referencia:</strong> 8387244</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="body">
+        <!-- INFORMACIÓN -->
+        <div class="newleft">
+            <h2 class="titles">Sobre el destino</h2>
+            <p class="btext">Praga, la capital de la República Checa, es una ciudad que deslumbra con su arquitectura
+                medieval, sus encantadoras calles empedradas y su atmósfera romántica. Desde la imponente fortaleza del
+                Castillo de Praga hasta el emblemático Puente de Carlos, cada rincón de esta ciudad cuenta una historia
+                fascinante. Con su rica historia, deliciosa gastronomía y vibrante escena cultural, Praga cautiva a todos
+                los que tienen la suerte de visitarla.</p>
+
+            <h2 class="titles">Detalles de ida</h2>
+            <img class="vuelo" src="/img/vuelo1.png" alt="Vuelo de ida Madrid - Praga">
+
+            <h2 class="titles">Detalles de vuelta</h2>
+            <img class="vuelo" src="/img/vuelo2.png" alt="Vuelo de vuelta Praga - Madrid">
+        </div>
+
+        <!-- FORMULARIO DE RESERVA -->
+        <aside class="newright">
+            <div class="form">
+                <form id="form-reserva">
+                    <h2 class="titles">Personaliza tu viaje</h2>
+
+                    <div class="campo">
+                        <label for="origen">Origen</label>
+                        <select id="origen" name="origen">
+                            <option value="madrid" selected>Madrid, España</option>
+                            <option value="barcelona">Barcelona, España</option>
+                            <option value="malaga">Málaga, España</option>
+                            <option value="valencia">Valencia, España</option>
+                            <option value="sevilla">Sevilla, España</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="destino">Destino</label>
+                        <select id="destino" name="destino">
+                            <option value="praga" selected>Praga, República Checa</option>
+                            <option value="amsterdam">Ámsterdam, Países Bajos</option>
+                            <option value="atenas">Atenas, Grecia</option>
+                            <option value="bruselas">Bruselas, Bélgica</option>
+                            <option value="budapest">Budapest, Hungría</option>
+                            <option value="copenhague">Copenhague, Dinamarca</option>
+                            <option value="dublin">Dublín, Irlanda</option>
+                            <option value="estambul">Estambul, Turquía</option>
+                            <option value="estocolmo">Estocolmo, Suecia</option>
+                            <option value="helsinki">Helsinki, Finlandia</option>
+                            <option value="lisboa">Lisboa, Portugal</option>
+                            <option value="oslo">Oslo, Noruega</option>
+                            <option value="varsovia">Varsovia, Polonia</option>
+                            <option value="viena">Viena, Austria</option>
+                            <option value="zurich">Zúrich, Suiza</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-doble">
+                        <div class="campo">
+                            <label for="fecha_salida">Ida</label>
+                            <input type="date" id="fecha_salida" name="fecha_salida" required>
+                        </div>
+                        <div class="campo">
+                            <label for="fecha_vuelta">Vuelta</label>
+                            <input type="date" id="fecha_vuelta" name="fecha_vuelta" required>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="huespedes">Huéspedes</label>
+                        <select id="huespedes" name="huespedes">
+                            <option value="1">1 adulto</option>
+                            <option value="2" selected>2 adultos</option>
+                            <option value="2_1">2 adultos, 1 niño</option>
+                            <option value="2_2">2 adultos, 2 niños</option>
+                            <option value="2_3">2 adultos, 3 niños</option>
+                            <option value="3">3 adultos</option>
+                            <option value="3_1">3 adultos, 1 niño</option>
+                        </select>
+                    </div>
+
+                    <p class="total">Precio desde <strong>322€</strong> por persona</p>
+                    <button type="submit" class="boton-reservar">Reservar</button>
+                    <p class="aviso-demo" id="aviso-demo" role="status" hidden>
+                        ¡Gracias! Esta web es un proyecto de demostración, así que la reserva no se procesa de verdad.
+                    </p>
+                </form>
+            </div>
+        </aside>
+    </div>
+
+    <!-- DETALLES DEL HOTEL -->
+    <section id="detalleshotel">
+        <h2 class="titles">Grandium Hotel Praga</h2>
+        <p class="btext">
+            El Grandium Hotel Prague está situado en el corazón de Praga, muy cerca de la Plaza de Wenceslao. Ofrece
+            habitaciones elegantes y modernas con aire acondicionado y baño de lujo. Todas las habitaciones incluyen
+            conexión gratuita a internet por cable. Disponen de TV de pantalla plana con canales vía satélite, escritorio y
+            minibar. Hay WiFi gratuita en todo el hotel. Todas las habitaciones son para no fumadores. El Grandium Hotel
+            Prague alberga un restaurante cafetería que sirve platos deliciosos de cocina internacional y nacional. Se puede
+            comer en su llamativo comedor o, cuando hace buen tiempo, en el jardín de verano. El Grandium Hotel Prague tiene
+            recepción 24 horas. Se presta servicio de lavandería. El establecimiento está a poca distancia a pie del
+            transporte público. El Museo Nacional de Praga se halla a 300 metros y la capilla de Belén, a 600 metros. Se
+            proporciona aparcamiento privado en garaje por un suplemento.
+        </p>
+        <div id="imageandmap">
+            <div id="images">
+                <img src="/img/hotel1.jpg" alt="Hotel: fotografía 1" loading="lazy">
+                <img src="/img/hotel2.jpg" alt="Hotel: fotografía 2" loading="lazy">
+                <img src="/img/hotel3.jpg" alt="Hotel: fotografía 3" loading="lazy">
+                <img src="/img/hotel4.jpg" alt="Hotel: fotografía 4" loading="lazy">
+                <img src="/img/hotel5.jpg" alt="Hotel: fotografía 5" loading="lazy">
+                <img src="/img/hotel6.jpg" alt="Hotel: fotografía 6" loading="lazy">
+            </div>
+            <div id="maps">
+                <iframe title="Ubicación del hotel en el mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.7233770590933!2d14.428289084836551!3d50.08182974091947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9492e19f2763%3A0x65ee4cac059bf09f!2sGrandium%20Hotel%20Prague!5e0!3m2!1ses!2ses!4v1714668414923!5m2!1ses!2ses"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>
