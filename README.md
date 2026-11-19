@@ -60,7 +60,7 @@ Web de una agencia de viajes para explorar **paquetes turísticos, hoteles y vue
 ## 📁 Estructura del proyecto
 
 ```
-tell-me-where/
+tell-me-where-agencia-viajes/
 ├── scripts/
 │   ├── crear-bd.js        # Crea la base de datos con los datos de ejemplo
 │   └── dev.js             # Arranca en modo desarrollo y abre el navegador
@@ -82,8 +82,8 @@ El proyecto sigue una estructura **rutas → controlador → vistas**. Solo se p
 Necesitas [Node.js](https://nodejs.org/) 20 o superior y **MariaDB** o **MySQL** en marcha.
 
 ```bash
-git clone https://github.com/corderocana-dev/tell-me-where.git
-cd tell-me-where
+git clone https://github.com/corderocana-dev/tell-me-where-agencia-viajes.git
+cd tell-me-where-agencia-viajes
 npm install
 ```
 
